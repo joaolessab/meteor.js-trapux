@@ -1,0 +1,79 @@
+<template name="CreateRating">
+    <div id="createRating" class="panels backfolder">
+        <div class="div-form" id="rating-white">                    
+            
+            <div class="head-form">
+                <p class="blockTitle">Quadro de Avaliações</p>
+                <button type="button" class="closeBtn">X</button>
+            </div>
+            
+
+            <form id="formRating">            
+                <select id="devs"> 
+                    <option value="sel">Selecione um desenvolvedor</option>
+                    
+                    {{#each devs}}
+                        <option value="{{_id}}">{{profile.firstName}}</option>    
+                    {{/each}}
+
+                </select>
+
+                <div class="indicators-div">
+                    <div class="ind-3 go-clocks">
+                        <button type="button" id="c1" class="clock-gray"></button>
+                        <button type="button" id="c2" class="clock-gray"></button>
+                        <button type="button" id="c3" class="clock-gray"></button>
+                        <button type="button" id="c4" class="clock-gray"></button>
+                        <button type="button" id="c5" class="clock-gray"></button>
+                        <p>Agilidade</p>
+                    </div>
+
+                    <div class="ind-3 go-likes">
+                        <button type="button" id="l1" class="like-gray"></button>
+                        <button type="button" id="l2" class="like-gray"></button>
+                        <button type="button" id="l3" class="like-gray"></button>
+                        <button type="button" id="l4" class="like-gray"></button>
+                        <button type="button" id="l5" class="like-gray"></button>
+                        <p>Eficácia</p>
+                    </div>
+
+                    <div class="ind-3 go-stars">
+                        <button type="button" id="s1" class="star-gray"></button>
+                        <button type="button" id="s2" class="star-gray"></button>
+                        <button type="button" id="s3" class="star-gray"></button>
+                        <button type="button" id="s4" class="star-gray"></button>
+                        <button type="button" id="s5" class="star-gray"></button>
+                        <p>Qualidade</p>
+                    </div>
+                </div>
+            </form>
+
+            <div class="ranking">
+                <br>
+                <p class="top-p">Top 3</p>
+                <hr/>
+                {{#each topranking}}
+                    {{#if checkGold medal}}
+                        <div class="ind-3">
+                            <p class="dev-p">{{nome}}</p>
+                            <div class="medalha" id="gold"></div>
+                            <p>Pontuação: {{pont}}</p>
+                        </div>
+                    {{else}} {{#if checkSilver medal}}
+                        <div class="ind-3">
+                            <p class="dev-p">{{nome}}</p>
+                            <div class="medalha" id="silver"></div>
+                            <p>Pontuação: {{pont}}</p>
+                        </div>
+                    {{else}} {{#if checkBronze medal}}
+                        <div class="ind-3">
+                            <p class="dev-p">{{nome}}</p>
+                            <div class="medalha" id="bronze"></div>
+                            <p>Pontuação: {{pont}}</p>
+                        </div>
+                    {{/if}}{{/if}}{{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>

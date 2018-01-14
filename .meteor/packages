@@ -1,0 +1,65 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base@1.0.4             # Packages every Meteor app needs to have
+mobile-experience@1.0.4       # Packages for a great mobile UX
+mongo@1.1.16                   # The database Meteor supports right now
+blaze-html-templates    # Compile .html files into Meteor Blaze views
+session@1.1.7                 # Client-side reactive dictionary for your app
+jquery@1.11.10                  # Helpful client-side library
+tracker@1.1.2                 # Meteor's client-side reactive programming library
+
+es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
+ecmascript@0.6.3              # Enable ECMAScript2015+ syntax in app code
+
+
+kadira:flow-router
+kadira:blaze-layout
+
+erasaur:meteor-lodash
+stolinski:stylus-multi
+spiderable
+fastclick@1.0.13
+aldeed:collection2
+
+#Deve ficar comentado por enquanto - aldeed:autoform
+
+accounts-ui@1.1.9
+matb33:bootstrap-glyphicons
+zimme:active-route
+gwendall:auth-client-callbacks
+meteortoys:allthings
+datariot:ganalytics
+
+fourseven:scss
+fortawesome:fontawesome
+standard-minifier-css@1.3.4
+standard-minifier-js@1.2.3
+
+accounts-base@1.2.15
+accounts-password@1.3.4
+useraccounts:unstyled
+raix:handlebar-helpers
+aldeed:template-extension
+alanning:roles
+
+check@1.2.5
+autopublish@1.0.7
+twbs:bootstrap
+shell-server
+maazalik:highcharts
+cfs:standard-packages
+cfs:gridfs
+cfs:filesystem
+cfs:s3
+sebdah:autocompletion
+mizzao:autocomplete
+maazalik:highcharts-3d
+lamatyus:toastr
+sacha:spin
+raix:ui-dropped-event
+reactive-var
+ramda:ramda@=0.17.1

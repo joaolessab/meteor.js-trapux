@@ -1,0 +1,36 @@
+<template name="SeeGestorUxorders">
+    <div id="seeGestorUxorders" class="panels backfolder">
+        <div class="div-form">                    
+            
+            <div class="head-form">
+                <p class="blockTitle">Todos os Chamados</p>
+                <button type="button" class="closeBtn">X</button>
+            </div>
+            
+            {{#if checkSomeUxorder "nenhum"}}
+                <p class="non-uxo">Não há requisições ainda</p>
+            {{else}}
+            <div class="filters-div">
+                <input type="text" class="search-use-full" placeholder="Pesquise seus chamados..." />
+                <select class="filsel">
+                    <option value="none">Status</option>
+                    <option value="open">Aberto</option>
+                    <option value="pend">Pendente</option>
+                    <option value="conc">Concluído</option>
+                    <option value="canc">Cancelado</option>
+                </select>
+            </div>
+            <ul id="allOrders">
+                <p class="non-uxo" id="ux-not-found">Não há requisições para esse filtro</p>
+                {{#each uxorder}}
+                    <li class="eachOrder" id="{{_id}}">
+                        <div class="uxo-all-{{status}}"></div>
+                            <em>{{title}}</em>
+                            <p>Projeto: {{project}}</p>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+</template>

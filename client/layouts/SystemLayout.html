@@ -1,0 +1,14 @@
+<!-- PRINCIPAL TEMPLATE DO PROJETO -->
+<template name="SystemLayout">
+    <div class="cover-div">
+    	<!-- DEFININDO A HEADER OU LEFT BAR -->
+    	{{#if currentUser}}
+        	{{> LeftMenu}}
+        {{else}}
+        	{{> Header}}
+        {{/if}}
+        <main class="app-layout">
+            {{> Template.dynamic template=main}}
+        </main>
+    </div>
+</template>

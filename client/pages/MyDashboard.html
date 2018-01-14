@@ -1,0 +1,23 @@
+<template name="MyDashboard">
+    {{# if currentUser}}
+
+        {{#each users}}
+        	
+        	{{#if checkCliente profile.profession}}
+                {{> FinalUserDashboard }}
+        	
+        	{{else}} {{#if checkGestor profile.profession}}
+        		{{> GestorDashboard}}
+
+        	{{else}} {{#if checkDev profile.profession}}
+        		{{> DevDashboard}}
+        	{{/if}}{{/if}}{{/if}}
+
+        {{/each}}
+
+    {{else}}
+
+        <!--h1>Não autorizado</h1-->
+        
+    {{/if}}
+</template>

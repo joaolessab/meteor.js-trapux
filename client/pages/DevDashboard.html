@@ -1,0 +1,73 @@
+<template name="DevDashboard">
+    {{> DevMobileNavBar}}
+
+    <!-- MAIN PANEL -->
+    <div class="space">
+        {{#each users}}
+            <h3 class="welcome-p">Olá, {{profile.firstName}}</h3>
+            
+            <!-- DIV DO GRÁFICO -->
+            <div class="bloco-2 usable-space mobile-top">
+                <div class="bloco-header">
+                    <p class="bloco-title">Chamados Atendidos</p>
+                    <a href="#" class="see-more-a">Ver mais</a> 
+                </div>  
+                {{#if checkConcOrders "nenhum"}}
+                        <p class="non-uxo">Não há chamados atendidos ainda</p>
+                {{else}}
+                    <p id="notify-loc">Busca não retornou valores</p>
+                    <ul id="lastOrders">
+                        {{#each lastConcOrders}}
+                            <li class="eachAtend" id="{{_id}}">
+                                <div class="right-status uxo-{{status}}"></div>
+                                <em>{{title}}</em>
+                                <p>Projeto: {{project}}</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </div>
+
+            <!-- DIV DOS ÚLTIMOS CHAMADOS -->
+            <div class="bloco-2 usable-space">
+                <div class="bloco-header">
+                    <p class="bloco-title">Chamados Pendentes</p>
+                    <a href="#" class="see-more-a">Ver mais</a>
+                </div>
+
+                {{#if checkPenOrders "nenhum"}}
+                    <p class="non-uxo">Não há chamados para serem atendidos</p>
+                {{else}}
+                    <p id="notify-non">Busca não retornou valores</p>
+                    <ul id="lastOrders">
+                        {{#each lastPenOrders}}
+                            <li class="eachPend" id="{{_id}}">
+                                <div class="uxo-{{status}}"></div>
+                                <em>{{title}}</em>
+                                <p>Projeto: {{project}}</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </div>
+
+            <!-- DIV DOS CHAMADOS POR CATEGORIAS -->
+            <div class="bloco-1" id="client-bars">
+                <div class="bloco-header">
+                    <p class="bloco-title">Resumo Categórico</p>
+                </div>
+                {{#if checkSomeUxorder "nenhum"}}
+                        <p class="non-uxo">Não há nenhuma requisição ainda</p>
+                {{else}}
+                    {{> ClientBars}}
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+    <!-- END MAIN PANEL -->
+
+    <!-- EXTERNAL PANELS -->
+    {{> SeeDevUxorders}}
+    {{> EditViewUxorder}}
+    <!-- END EXTERNAL PANELS -->
+</template>

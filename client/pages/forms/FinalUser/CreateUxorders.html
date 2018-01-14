@@ -1,0 +1,36 @@
+<template name="CreateUxorders">
+    <div id="createUxorders" class="panels backfolder">
+        <div class="div-form">                    
+            
+            <div class="head-form">
+                <p class="blockTitle">Novo Chamado</p>
+                <button type="button" class="closeBtn">X</button>
+            </div>
+            
+            <form id="formUxorder">
+                <input type="text" id="project" name="project" placeholder="Nome do Projeto" /><br>
+                <p class="err-msg" id="projeto-msg">Escolha o nome do projeto</p>
+
+                <input placeholder="Título da Requisição" type="text" id="title"><br>
+                <p class="err-msg" id="title1-msg">Título da Requisição não pode estar em branco</p>
+                <p class="err-msg" id="title2-msg">Título da Requisição deve conter até 10 caracteres</p>
+                
+                <select id="type">
+                    <option value="sel">Selecione o tipo do chamado</option>
+                    <option value="nova">Nova função</option>
+                    <option value="reparo">Reparo</option>
+                    <option value="manutencao">Manutenção</option>
+                </select><br>
+                <p class="err-msg" id="tipo-msg">Selecione um valor para o tipo</p>
+                
+                <textarea id="description" placeholder="Especifique aqui a sua requisição, faça comentários e fique a vontade para dar mais detalhes..."></textarea><br>
+                <p class="err-msg" id="desc-msg">Descrição não pode conter menos de 10 caracteres</p>
+                
+                <br>
+                <input type="submit" value="Salvar" />
+                <button id="clearUxorder">Limpar</button>
+            </form>
+        
+        </div>
+    </div>
+</template>

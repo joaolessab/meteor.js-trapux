@@ -1,0 +1,65 @@
+<template name="FinalUserDashboard">
+	{{> FUMobileNavBar}}
+
+	<!-- MAIN PANEL -->
+	<div class="space">
+		{{#each users}}
+			<h3 class="welcome-p">Olá, {{profile.firstName}}</h3>
+			
+			<!-- DIV DO GRÁFICO - 1 -->
+			<div class="bloco-2 usable-space mobile-top">
+				<div class="bloco-header">
+					<p class="bloco-title">Levantamento de Projetos</p>
+				</div>	
+				{{#if checkSomeUxorder "nenhum"}}
+                		<p class="non-uxo">Você não possui nenhuma requisição ainda</p>
+                {{else}}
+					{{> ClientDonut}}
+				{{/if}}
+			</div>
+
+			<!-- DIV DOS ÚLTIMOS CHAMADOS -->
+			<div class="bloco-2 usable-space">
+				<div class="bloco-header">
+					<p class="bloco-title">Últimos chamados</p>
+					<a href="#" class="see-more-a">Ver mais</a>
+				</div>
+
+                {{#if checkSomeUxorder "nenhum"}}
+                	<p class="non-uxo">Você não possui nenhuma requisição ainda</p>
+                {{else}}
+                	<p id="notify-us">Busca não retornou valores</p>
+					<ul id="lastOrders">
+						{{#each lastOrders}}
+		                 	<li class="eachOrder" id="{{_id}}">
+		                 		<div class="uxo-{{status}}"></div>
+		                      	<em>{{title}}</em>
+		                       	<p>Projeto: {{project}}</p>
+		                    </li>
+		                {{/each}}
+	                </ul>
+                {{/if}}
+			</div>
+
+			<!-- DIV DOS CHAMADOS POR CATEGORIAS -->
+			<div class="bloco-1" id="client-bars">
+				<div class="bloco-header">
+					<p class="bloco-title">Resumo Categórico</p>
+				</div>
+				{{#if checkSomeUxorder "nenhum"}}
+                		<p class="non-uxo">Você não possui nenhuma requisição ainda</p>
+                {{else}}
+					{{> ClientBars}}
+				{{/if}}
+			</div>
+		{{/each}}
+	</div>
+	<!-- END MAIN PANEL -->
+
+	<!-- EXTERNAL PANELS -->
+	{{> CreateUxorders}}
+	{{> CreateRating}}
+	{{> SeeUxorders}}
+	{{> EditViewUxorder}}
+	<!-- END EXTERNAL PANELS -->
+</template>

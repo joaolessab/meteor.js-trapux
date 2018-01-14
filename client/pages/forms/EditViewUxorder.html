@@ -1,0 +1,68 @@
+<template name="EditViewUxorder">
+    <div id="editViewUxorder" class="panels backfolder">
+        <div class="div-form">
+            <div class="head-form">
+                <p class="blockTitle">Chamado: <b><em id="uxId"></em></b></p>
+                <button type="button" class="closeBtn">X</button>
+            </div>
+
+            <div class="open-st status-div">
+            {{#each users}}
+            
+                {{#if checkCliente profile.profession}}
+                    <button class="editux"></button>
+                    <button class="cancelux"></button>      
+                {{else}} {{#if checkGestor profile.profession}}
+                    <button class="alocux"></button>
+                    <button class="editux"></button>
+                    <button class="cancelux"></button>
+                {{else}} {{#if checkDev profile.profession}}
+                    <button class="concux"></button>
+                {{/if}}{{/if}}{{/if}}
+
+            {{/each}}
+            </div>
+            
+            <form id="formEditUxorder">
+
+                <div id="alocated-div">
+                    <p id="dev-name">Escolha o Desenvolvedor:</p>
+                    <select id="dev-select">
+                        <option value="...">Selecione o desenvolvedor</option>
+                        {{#each alocated}}
+                        <option value="{{_id}}">{{profile.firstName}}</option>
+                        {{/each}}
+                    </select>
+                    <button class="rigux" type="button"></button><br>
+                </div>
+
+                <p id="proj-name">Nome do Projeto</p>
+                <input type="text" id="project-view" name="project" placeholder="Nome do Projeto" disabled/><br>
+
+                <p>Título da Requisição</p>
+                <input placeholder="Título da Requisição" type="text" id="title-view" disabled/><br>
+                
+                <p>Tipo da Requisição</p>
+                <select id="type-view" disabled>
+                    <option value="nova">Nova função</option>
+                    <option value="reparo">Reparo</option>
+                    <option value="manutencao">Manutenção</option>
+                </select><br>
+                
+                <p>Descrição da Requisição</p>
+                <textarea id="description-view" disabled></textarea><br>
+
+                <p>Desenvolvedor</p>
+                <input type="text" id="dev-view" disabled/><br>
+
+                <p>Relatório do Desenvolvedor</p>
+                <textarea id="relatorio-view" disabled></textarea><br>
+                
+                <input type="submit" id="modify-edit" value="Modificar"/>
+                <button type="button" id="limpar-edit">Limpar</button>
+                <button type="button" id="concluir-edit">Concluir</button>
+            </form>
+        
+        </div>
+    </div>
+</template>

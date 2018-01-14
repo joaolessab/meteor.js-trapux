@@ -1,0 +1,74 @@
+<template name="GestorDashboard">
+    {{> GestorMobileNavBar}}
+
+    <!-- MAIN PANEL -->
+    <div class="space">
+        {{#each users}}
+            <h3 class="welcome-p">Olá, {{profile.firstName}}</h3>
+            
+            <!-- DIV DO GRÁFICO -->
+            <div class="bloco-2 usable-space mobile-top">
+                <div class="bloco-header">
+                    <p class="bloco-title">Chamados Alocados</p>
+                    <a href="#" class="see-more-a">Ver mais</a> 
+                </div>  
+                {{#if checkAlocatedOrders "nenhum"}}
+                        <p class="non-uxo">Não há chamados alocados ainda</p>
+                {{else}}
+                    <p id="notify-loc">Busca não retornou valores</p>
+                    <ul id="lastOrders">
+                        {{#each lastAlocatedOrders}}
+                            <li class="eachNonLocated" id="{{_id}}">
+                                <div class="right-status uxo-{{status}}"></div>
+                                <em>{{title}}</em>
+                                <p>Projeto: {{project}}</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </div>
+
+            <!-- DIV DOS ÚLTIMOS CHAMADOS -->
+            <div class="bloco-2 usable-space">
+                <div class="bloco-header">
+                    <p class="bloco-title">Não Alocados</p>
+                    <a href="#" class="see-more-a">Ver mais</a>
+                </div>
+
+                {{#if checkOpenOrders "nenhum"}}
+                    <p class="non-uxo">Não há chamados para serem alocados</p>
+                {{else}}
+                    <p id="notify-non">Busca não retornou valores</p>
+                    <ul id="lastOrders">
+                        {{#each lastOpenOrders}}
+                            <li class="eachLocated" id="{{_id}}">
+                                <div class="uxo-{{status}}"></div>
+                                <em>{{title}}</em>
+                                <p>Projeto: {{project}}</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </div>
+
+            <!-- DIV DOS CHAMADOS POR CATEGORIAS -->
+            <div class="bloco-1" id="client-bars">
+                <div class="bloco-header">
+                    <p class="bloco-title">Resumo Categórico</p>
+                </div>
+                {{#if checkSomeUxorder "nenhum"}}
+                        <p class="non-uxo">Não há nenhuma requisição ainda</p>
+                {{else}}
+                    {{> ClientBars}}
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+    <!-- END MAIN PANEL -->
+
+    <!-- EXTERNAL PANELS -->
+    {{> CreateRating}}
+    {{> SeeDevUxorders}}
+    {{> EditViewUxorder}}
+    <!-- END EXTERNAL PANELS -->
+</template>

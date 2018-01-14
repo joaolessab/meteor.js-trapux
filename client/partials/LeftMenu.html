@@ -1,0 +1,39 @@
+<template name="LeftMenu">
+    <div class="left-menu-bar">
+        <div class="logo-img"></div>
+        <div class="logo-text">Trapux</div>
+        {{# if currentUser}}
+            {{#each users}}
+                {{#if checkCliente profile.profession}}
+                    
+                    <button type="button" class="bar-actived">Home</button>
+                    <button type="button" id="ver-chamados">Ver Chamados</button>
+                    <button type="button" id="ver-relatorio">Ver Relatórios
+                        <div class="rel-beta"></div>
+                    </button>
+                    <button type="button" id="avaliar-dev">Avaliar Desenvolvedor</button>
+            
+                {{else}} {{#if checkGestor profile.profession}}
+
+                    <button type="button" class="bar-actived">Home</button>
+                    <button type="button" id="ver-chamados-gestor">Ver Chamados</button>
+                    <button type="button" id="ver-relatorio">Ver Relatórios
+                        <div class="rel-beta"></div>
+                    </button>
+                    <button type="button" id="avaliar-dev-gestor">Avaliar Desenvolvedor</button>
+                    
+
+                {{else}} {{#if checkDev profile.profession}}
+
+                    <button type="button" class="bar-actived">Home</button>
+                    <button type="button" id="ver-chamados-dev">Ver Chamados</button>
+                    <button type="button" id="ver-relatorio">Ver Relatórios
+                        <div class="rel-beta"></div>
+                    </button>       
+            
+                {{/if}}{{/if}}{{/if}}
+            {{/each}}
+        {{else}}
+        {{/if}}
+    </div>
+</template>

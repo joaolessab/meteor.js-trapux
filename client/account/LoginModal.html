@@ -1,0 +1,8 @@
+<template name="LoginModal">
+	{{# if $not currentUser}}
+		<div id="login-form">
+			<!-- Isso adiciona um form sem estilo -->
+			{{> atForm }}
+		</div>
+	{{/if}}
+</template>
