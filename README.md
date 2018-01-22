@@ -3,7 +3,8 @@ Web responsive system develop to improve the management of process between devel
 
 This project was developed with [Meteor JS](https://www.meteor.com/developers).
 
-#### How do I run your project, João? It's simple. Run the commands below inside the main folder of the application:
+#### How do I run your project, João? 
+#### - It's simple. Run the commands below inside the main folder of the application:
 ```sh
 $ meteor npm install
 $ meteor
