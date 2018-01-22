@@ -3,6 +3,7 @@ Web responsive system develop to improve the management of process between devel
 
 #### Running the Project
 ```sh
-$ meteor start
+$ meteor npm install
+$ meteor
 ```
 
