@@ -1,4 +1,9 @@
-# Trapux
+<p align="center">
+  <a href="http://sweetalert.js.org">
+    <img src="https://raw.githubusercontent.com/jvlessa/Meteor-JS--Trapux/master/public/resources/logotipo-principal.png" width="250">
+  </a>
+</p>
+
 Web responsive system develop to improve the management of process between developers, clients and final users focusing on User Experience based on [Nielsen's heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/). 
 
 This project was developed with [Meteor JS](https://www.meteor.com/developers).
@@ -11,4 +16,3 @@ This project was developed with [Meteor JS](https://www.meteor.com/developers).
 $ meteor npm install
 $ meteor
 ```
-
