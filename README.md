@@ -14,3 +14,5 @@ This project was developed with [Meteor JS](https://www.meteor.com/developers).
 $ meteor npm install
 $ meteor
 ```
+## Want to see some screenshots? 
+[Click here to check it out](https://github.com/jvlessa/Meteor-JS--Trapux/tree/master/screenshots)
